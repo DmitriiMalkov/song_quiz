@@ -18,6 +18,10 @@ class SongsQuiz:
     TRQ = []
     TRR = 0
 
+    def chooseSong(self):
+        self.song = random.choice(self.songs)
+        self.songs.remove(self.song)
+
     def testPlus(self):
         if self.answer.lower() == self.song.lower() and self.pluses == (self.testpluses + 1):
             self.testpluses = self.testpluses + 1
@@ -65,6 +69,7 @@ class SongsQuiz:
 
     def main(self):
         while self.quizes != 5:
+            self.chooseSong(obj)
             self.testNotTheSameSong(obj)
             self.testRightQuestion(obj)
             self.testPlus(obj)
