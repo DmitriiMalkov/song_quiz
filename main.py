@@ -22,6 +22,16 @@ class SongsQuiz:
         self.song = random.choice(self.songs)
         self.songs.remove(self.song)
 
+    def askQuestion(self):
+        self.file = open(self.song + ".txt", "r")
+        while True:
+            line = self.file.readline()
+            if not line:
+                break
+            print(line.strip())
+        print()
+        print("Введите название песни")
+
     def testPlus(self):
         if self.answer.lower() == self.song.lower() and self.pluses == (self.testpluses + 1):
             self.testpluses = self.testpluses + 1
@@ -71,6 +81,7 @@ class SongsQuiz:
         while self.quizes != 5:
             self.chooseSong(obj)
             self.testNotTheSameSong(obj)
+            self.askQuestion(obj)
             self.testRightQuestion(obj)
             self.testPlus(obj)
             self.quizes = self.quizes + 1
