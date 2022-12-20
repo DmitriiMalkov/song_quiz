@@ -38,6 +38,10 @@ class SongsQuiz:
             self.pluses += 1
         print()
 
+    def WriteResult(self):
+        self.result = f"Вы угадали {self.pluses} из {self.i} песен."
+        print(self.result)
+
     def testPlus(self):
         if self.answer.lower() == self.song.lower() and self.pluses == (self.testpluses + 1):
             self.testpluses = self.testpluses + 1
@@ -92,6 +96,7 @@ class SongsQuiz:
             self.getAnswerAndCheck(obj)
             self.testPlus(obj)
             self.quizes = self.quizes + 1
+        self.WriteResult(obj)
         self.testRightResult(obj)
         self.testsCheck(obj)
 
